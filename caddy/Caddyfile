@@ -1,0 +1,3 @@
+localhost {
+    reverse_proxy github-actions-docker-compose-deployment-wordpress-1:80
+}
