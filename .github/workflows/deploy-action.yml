@@ -20,7 +20,7 @@ jobs:
 
       - name: Build and Deploy
         env:
-          DOCKER_HOST: "ssh://${{secrets.USER}}@${{secrets.HOST}}:${{secrets.PORT}}"
+          DOCKER_REMOTE_HOST: "ssh://${{secrets.USER}}@${{secrets.HOST}}:${{secrets.PORT}}"
         run: |
          chmod +x ./deploy.sh
          ./deploy.sh
