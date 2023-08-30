@@ -6,6 +6,6 @@ done
 
 echo $images
 
-docker image save $images | docker -H "ssh://${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.PORT }}" image load
-docker-compose -H "ssh://${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.PORT }}" up --force-recreate -d
-docker-compose -H "ssh://${{ secrets.USER }}@${{ secrets.HOST }}:${{ secrets.PORT }}" logs -f
+docker image save $images | docker image load
+docker-compose up --force-recreate -d
+docker-compose logs -f
