@@ -19,7 +19,7 @@ jobs:
 
       - name: Deploy to server
         environment:
-          - DOCKER_HOST: "ssh://${secrets.USER}@${secrets.HOST}:${secrets.PORT}"
+          DOCKER_HOST: "ssh://${secrets.USER}@${secrets.HOST}:${secrets.PORT}"
         run: |
          chmod +x ./deploy.sh
          ./deploy.sh
