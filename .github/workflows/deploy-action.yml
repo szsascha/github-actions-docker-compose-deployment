@@ -18,10 +18,7 @@ jobs:
         # Hack to prevent "Host key verification failed". Should be replaced with a ssh-keyscan based solution
         run: echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
-      - name: Build
-        run: docker-compose build
-
-      - name: Deploy to server
+      - name: Build and Deploy
         env:
           DOCKER_HOST: "ssh://${{secrets.USER}}@${{secrets.HOST}}:${{secrets.PORT}}"
         run: |
