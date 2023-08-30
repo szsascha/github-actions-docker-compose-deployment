@@ -37,7 +37,9 @@ services:
       - db
   # Using caddy for automatic HTTPS
   caddy:
-    dockerfile: caddy/Dockerfile
+    build:
+      context: .
+      dockerfile: ./caddy/Dockerfile
     ports:
       - 80:80
       - 443:443
