@@ -42,7 +42,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
 volumes:
   db_data:
   wp_data:
