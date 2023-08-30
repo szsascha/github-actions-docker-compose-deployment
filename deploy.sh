@@ -8,5 +8,5 @@ done
 
 echo $images
 
-docker image save $images | docker -H "${{ DOCKER_REMOTE_HOST }}" image load
-docker-compose -H "${{ DOCKER_REMOTE_HOST }}" up --force-recreate -d
+docker image save $images | docker -H "$DOCKER_REMOTE_HOST" image load
+docker-compose -H "$DOCKER_REMOTE_HOST" up --force-recreate -d
