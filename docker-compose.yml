@@ -38,7 +38,7 @@ services:
   # Using caddy for automatic HTTPS
   caddy:
     build:
-      context: .
+      context: ./caddy
       dockerfile: ./caddy/Dockerfile
     ports:
       - 80:80

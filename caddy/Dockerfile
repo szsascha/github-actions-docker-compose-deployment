@@ -1,3 +1,3 @@
 FROM caddy:2-alpine
 
-ADD ./caddy/ /etc/caddy/
+ADD . /etc/caddy

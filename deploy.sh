@@ -8,7 +8,5 @@ done
 
 echo $images
 
-docker-compose down
-docker image rm $images
 docker image save $images | docker image load
 docker-compose up --force-recreate -d
