@@ -8,5 +8,6 @@ done
 
 echo $images
 
+docker-compose down --rmi
 docker image save $images | docker image load
 docker-compose up --force-recreate -d
