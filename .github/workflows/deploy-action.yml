@@ -18,7 +18,7 @@ jobs:
         run: docker-compose build
 
       - name: Deploy to server
-        environment:
+        env:
           DOCKER_HOST: "ssh://${secrets.USER}@${secrets.HOST}:${secrets.PORT}"
         run: |
          chmod +x ./deploy.sh
