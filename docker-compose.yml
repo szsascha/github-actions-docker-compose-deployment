@@ -1,11 +1,13 @@
 ### Just a dummy application to test the deployment
 ### See: https://github.com/docker/awesome-compose/blob/master/official-documentation-samples/wordpress/README.md
-### Added caddy to use automatic HTTPS to it
+### Did some modifications to fit in my architecture
 
 services:
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
-    image: mariadb:10.6.4-focal
+    build:
+      context: .
+      dockerfile: ./images/mariadb.Dockerfile
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8.0.27
     command: '--default-authentication-plugin=mysql_native_password'
@@ -21,7 +23,9 @@ services:
       - 3306
       - 33060
   wordpress:
-    image: wordpress:latest
+    build:
+      context: .
+      dockerfile: ./images/wordpress.Dockerfile
     container_name: github-actions-docker-compose-deployment-wordpress-1
     volumes:
       - wp_data:/var/www/html
@@ -35,14 +39,6 @@ services:
       - WORDPRESS_DB_NAME=wordpress
     depends_on:
       - db
-  # Using caddy for automatic HTTPS
-  caddy:
-    build:
-      context: .
-      dockerfile: ./caddy/Dockerfile
-    ports:
-      - 80:80
-      - 443:443
 volumes:
   db_data:
   wp_data:

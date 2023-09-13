@@ -8,8 +8,7 @@ done
 
 echo $images
 
-
 docker image save $images
-docker-compose  -H "$DOCKER_REMOTE_HOST" down --rmi all
+docker-compose -p "github-actions-docker-compose-deployment" -H "$DOCKER_REMOTE_HOST" down --rmi all
 docker -H "$DOCKER_REMOTE_HOST" image load
-docker-compose -H "$DOCKER_REMOTE_HOST" up --force-recreate -d
+docker-compose -p "github-actions-docker-compose-deployment" -H "$DOCKER_REMOTE_HOST" up --force-recreate -d
